@@ -22,3 +22,16 @@ JOIN roles ON experiences."roleId" = roles.id
 JOIN companies ON experiences."companyId" = companies.id 
 JOIN users ON experiences."userId" = users.id 
 WHERE experiences."endDate" IS NULL AND experiences."userId" = 50;
+
+--BÔNUS
+SELECT schools.id, schools.name AS school, courses.name AS course, companies.name AS company, roles.name AS role 
+FROM applicants
+JOIN jobs ON applicants."jobId" = jobs.id 
+JOIN companies ON jobs."companyId" = companies.id 
+JOIN roles ON jobs."roleId" = roles.id 
+JOIN educations ON educations."userId" = applicants."userId" 
+JOIN schools on educations."schoolId" = schools.id 
+JOIN courses on educations."courseId" = courses.id 
+WHERE jobs."active" = true 
+AND jobs."companyId" = 10 
+AND roles.name = 'Software Engineer';
