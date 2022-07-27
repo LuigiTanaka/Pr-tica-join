@@ -1,5 +1,5 @@
 --QUESTÃO 1
-SELECT users.id, users.name, cities.name AS city FROM users JOIN cities ON users."cityId" = cities.id;
+SELECT users.id, users.name, cities.name AS city FROM users JOIN cities ON users."cityId" = cities.id WHERE cities.name = 'Rio de Janeiro';
 
 --QUESTÃO 2
 SELECT testimonials.id, t1.name AS writer, t2.name AS recipient, testimonials.message 
